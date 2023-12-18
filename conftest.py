@@ -2,6 +2,7 @@ import allure
 import pytest
 import requests
 import utils
+import logging
 
 from selene import browser, query
 from allure_commons._allure import step
@@ -15,6 +16,10 @@ def cookie():
                                  data={"Email": utils.LOGIN, "Password": utils.PASSWORD, "RememberMe": False},
                                  allow_redirects=False)
         allure.attach(body=str(response.cookies), name="Cookies", attachment_type=AttachmentType.TEXT, extension="txt")
+        logging.info(response.request.url)
+        logging.info(response.status_code)
+        logging.info(response.text)
+
         utils.cookie = response.cookies.get("NOPCOMMERCE.AUTH")
 
 
