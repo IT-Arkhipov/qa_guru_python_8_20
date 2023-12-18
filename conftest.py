@@ -31,6 +31,7 @@ def clear_cart(cookie):
         for i in range(products_number):
             browser.element('.cart tbody').all('tr')[i].element('.remove-from-cart').click()
         browser.element('[name="updatecart"]').click()
+        utils.add_screenshot(browser)
 
 
 @pytest.fixture(scope='function', autouse=True)

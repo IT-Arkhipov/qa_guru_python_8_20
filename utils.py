@@ -1,4 +1,7 @@
+import allure
+
 from allure_commons._allure import step
+from allure_commons.types import AttachmentType
 from selene import browser
 
 
@@ -16,3 +19,7 @@ def open_cart():
         browser.open(WEB_URL)
         browser.element('.header-links').element('a[href="/cart"]').click()
 
+
+def add_screenshot(_browser):
+    png = _browser.driver.get_screenshot_as_png()
+    allure.attach(body=png, name='screenshot', attachment_type=AttachmentType.PNG, extension='.png')

@@ -26,6 +26,7 @@ def test_add_books_to_the_cart():
     utils.open_cart()
     with step("Проверка наименования добавленной книги в корзине"):
         browser.element('.order-summary-content').should(have.text('Computing and Internet'))
+        utils.add_screenshot(browser)
 
 
 def test_add_notebook_to_the_cart():
@@ -42,6 +43,7 @@ def test_add_notebook_to_the_cart():
     utils.open_cart()
     with step("Проверка наименования добавленного ноутбука в корзине"):
         browser.element('.order-summary-content').should(have.text('14.1-inch Laptop'))
+        utils.add_screenshot(browser)
 
 
 def test_add_desktop_to_the_cart():
@@ -63,3 +65,4 @@ def test_add_desktop_to_the_cart():
     utils.open_cart()
     with step("Проверка наименования десктопного компьютера в корзине"):
         browser.element('.order-summary-content').should(have.text('Build your own cheap computer'))
+        utils.add_screenshot(browser)
